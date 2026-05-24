@@ -1,0 +1,326 @@
+openapi: 3.1.0
+info:
+  title: Ketch Web API
+  description: |
+    REST endpoints that power Ketch consent collection, consent retrieval and
+    update, data subject rights, and preference center QR codes. Endpoint paths
+    and behavior are derived from the open source Ketch Web API SDK at
+    https://github.com/ketch-sdk/ketch-web-api which is the canonical client for
+    the Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.
+  version: "3.0.0"
+  contact:
+    name: Ketch
+    url: https://docs.ketch.com/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: https://global.ketchcdn.com/web/v3
+    description: Ketch global edge production API.
+tags:
+  - name: Configuration
+    description: Fetch per-property bootstrap and consent configuration.
+  - name: Consent
+    description: Retrieve and update visitor consent state.
+  - name: Rights
+    description: Submit data subject right requests (access, deletion, etc).
+  - name: Preferences
+    description: Generate QR codes for the preference center.
+paths:
+  /config/{organizationCode}/{propertyCode}/{envCode}/{jurisdictionCode}/{langCode}/consent.json:
+    parameters:
+      - $ref: '#/components/parameters/OrganizationCode'
+      - $ref: '#/components/parameters/PropertyCode'
+      - $ref: '#/components/parameters/EnvCode'
+      - $ref: '#/components/parameters/JurisdictionCode'
+      - $ref: '#/components/parameters/LangCode'
+    get:
+      tags: [Configuration]
+      summary: Get the v2 consent configuration for a property
+      description: |
+        Returns the consent-experience configuration for the given property,
+        environment, jurisdiction, and language. No secret authentication is
+        required; the request is bound to a known property code.
+      operationId: getConsentConfiguration
+      parameters:
+        - name: hash
+          in: query
+          required: false
+          description: Optional cache-buster hash.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The consent configuration document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Configuration'
+  /config/{organizationCode}/{propertyCode}/{envCode}/{jurisdictionCode}/{langCode}/config.json:
+    parameters:
+      - $ref: '#/components/parameters/OrganizationCode'
+      - $ref: '#/components/parameters/PropertyCode'
+      - $ref: '#/components/parameters/EnvCode'
+      - $ref: '#/components/parameters/JurisdictionCode'
+      - $ref: '#/components/parameters/LangCode'
+    get:
+      tags: [Configuration]
+      summary: Get the full configuration for a property
+      operationId: getFullConfiguration
+      responses:
+        '200':
+          description: The full configuration document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Configuration'
+  /consent/{organizationCode}/get:
+    parameters:
+      - $ref: '#/components/parameters/OrganizationCode'
+    post:
+      tags: [Consent]
+      summary: Get the current consent state for a visitor
+      operationId: getConsent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetConsentRequest'
+      responses:
+        '200':
+          description: The current consent state per purpose.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConsentResponse'
+  /consent/{organizationCode}/update:
+    parameters:
+      - $ref: '#/components/parameters/OrganizationCode'
+    post:
+      tags: [Consent]
+      summary: Set the consent state for a visitor
+      operationId: setConsent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetConsentRequest'
+      responses:
+        '204':
+          description: Consent recorded.
+  /rights/{organizationCode}/invoke:
+    parameters:
+      - $ref: '#/components/parameters/OrganizationCode'
+    post:
+      tags: [Rights]
+      summary: Invoke a data subject right
+      description: |
+        Submits a data subject right request (access, deletion, portability,
+        etc) against the Ketch platform.
+      operationId: invokeRight
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvokeRightRequest'
+      responses:
+        '202':
+          description: Right submitted for processing.
+  /qr/{organizationCode}/{propertyCode}/preferences.png:
+    parameters:
+      - $ref: '#/components/parameters/OrganizationCode'
+      - $ref: '#/components/parameters/PropertyCode'
+    get:
+      tags: [Preferences]
+      summary: Get a QR code image for the preference center
+      operationId: getPreferencesQr
+      parameters:
+        - name: env
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 64
+            maximum: 2048
+        - name: path
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: bgcolor
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: fgcolor
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A PNG QR code image.
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+components:
+  parameters:
+    OrganizationCode:
+      name: organizationCode
+      in: path
+      required: true
+      schema:
+        type: string
+    PropertyCode:
+      name: propertyCode
+      in: path
+      required: true
+      schema:
+        type: string
+    EnvCode:
+      name: envCode
+      in: path
+      required: true
+      schema:
+        type: string
+    JurisdictionCode:
+      name: jurisdictionCode
+      in: path
+      required: true
+      schema:
+        type: string
+    LangCode:
+      name: langCode
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Identity:
+      type: object
+      properties:
+        identitySpace:
+          type: string
+          description: The identity space code (e.g. ketch_id).
+        identityValue:
+          type: string
+    Configuration:
+      type: object
+      description: Property configuration document. Shape varies by deployment.
+      additionalProperties: true
+    GetConsentRequest:
+      type: object
+      required: [organizationCode, propertyCode, environmentCode, jurisdictionCode, identities, purposes]
+      properties:
+        organizationCode:
+          type: string
+        propertyCode:
+          type: string
+        environmentCode:
+          type: string
+        jurisdictionCode:
+          type: string
+        identities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Identity'
+        purposes:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              legalBasisCode:
+                type: string
+    GetConsentResponse:
+      type: object
+      properties:
+        purposes:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              allowed:
+                type: boolean
+              legalBasisCode:
+                type: string
+        vendors:
+          type: array
+          items:
+            type: string
+    SetConsentRequest:
+      type: object
+      required: [organizationCode, propertyCode, environmentCode, jurisdictionCode, identities, purposes]
+      properties:
+        organizationCode:
+          type: string
+        propertyCode:
+          type: string
+        environmentCode:
+          type: string
+        jurisdictionCode:
+          type: string
+        identities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Identity'
+        purposes:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              allowed:
+                type: boolean
+              legalBasisCode:
+                type: string
+        vendors:
+          type: array
+          items:
+            type: string
+        collectedAt:
+          type: string
+          format: date-time
+    InvokeRightRequest:
+      type: object
+      required: [organizationCode, propertyCode, environmentCode, jurisdictionCode, identities, rightCode, user]
+      properties:
+        organizationCode:
+          type: string
+        propertyCode:
+          type: string
+        environmentCode:
+          type: string
+        jurisdictionCode:
+          type: string
+        identities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Identity'
+        rightCode:
+          type: string
+          description: The right being exercised (e.g. delete, access).
+        user:
+          type: object
+          properties:
+            email:
+              type: string
+              format: email
+            first:
+              type: string
+            last:
+              type: string
+            country:
+              type: string
+            stateRegion:
+              type: string
+            description:
+              type: string
