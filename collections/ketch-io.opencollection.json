@@ -1,0 +1,238 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ketch Web API",
+    "version": "3.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the v2 consent configuration for a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://global.ketchcdn.com/web/v3/config/:organizationCode/:propertyCode/:envCode/:jurisdictionCode/:langCode/consent.json",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "propertyCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "envCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jurisdictionCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "langCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "Optional cache-buster hash."
+              }
+            ]
+          },
+          "docs": "Returns the consent-experience configuration for the given property,\nenvironment, jurisdiction, and language. No secret authentication is\nrequired; the request is bound to a known property code.\n"
+        },
+        {
+          "info": {
+            "name": "Get the full configuration for a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://global.ketchcdn.com/web/v3/config/:organizationCode/:propertyCode/:envCode/:jurisdictionCode/:langCode/config.json",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "propertyCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "envCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jurisdictionCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "langCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the full configuration for a property"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Consent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the current consent state for a visitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://global.ketchcdn.com/web/v3/consent/:organizationCode/get",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the current consent state for a visitor"
+        },
+        {
+          "info": {
+            "name": "Set the consent state for a visitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://global.ketchcdn.com/web/v3/consent/:organizationCode/update",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the consent state for a visitor"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Invoke a data subject right",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://global.ketchcdn.com/web/v3/rights/:organizationCode/invoke",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits a data subject right request (access, deletion, portability,\netc) against the Ketch platform.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Preferences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a QR code image for the preference center",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://global.ketchcdn.com/web/v3/qr/:organizationCode/:propertyCode/preferences.png",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "propertyCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bgcolor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fgcolor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a QR code image for the preference center"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
