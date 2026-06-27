@@ -43,7 +43,7 @@ apis:
         url: https://www.ketch.com/integrations
       - type: SourceCode
         url: https://github.com/ketch-com
-      - type: SignUp
+      - type: Signup
         url: https://www.ketch.com/ketch-free-cookie-banner
       - type: Pricing
         url: https://www.ketch.com/pricing
