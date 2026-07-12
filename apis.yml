@@ -172,6 +172,8 @@ apis:
       - type: Property Code
         description: Configured per property using a property code, with calls authenticated against the Ketch backend.
 common:
+  - type: DomainSecurity
+    url: security/ketch-io-domain-security.yml
   - type: Website
     url: https://www.ketch.com/
   - type: Documentation
@@ -184,6 +186,8 @@ common:
     url: https://www.ketch.com/pricing
   - type: Integrations
     url: https://www.ketch.com/integrations
+  - type: Blog
+    url: https://www.ketch.com/blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
