@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: Ketch Web Configuration Preferences API
+  description: 'REST endpoints that power Ketch consent collection, consent retrieval and
+
+    update, data subject rights, and preference center QR codes. Endpoint paths
+
+    and behavior are derived from the open source Ketch Web API SDK at
+
+    https://github.com/ketch-sdk/ketch-web-api which is the canonical client for
+
+    the Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.
+
+    '
+  version: 3.0.0
+  contact:
+    name: Ketch
+    url: https://docs.ketch.com/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://global.ketchcdn.com/web/v3
+  description: Ketch global edge production API.
+tags:
+- name: Preferences
+  description: Generate QR codes for the preference center.
+paths:
+  /qr/{organizationCode}/{propertyCode}/preferences.png:
+    parameters:
+    - $ref: '#/components/parameters/OrganizationCode'
+    - $ref: '#/components/parameters/PropertyCode'
+    get:
+      tags:
+      - Preferences
+      summary: Get a QR code image for the preference center
+      operationId: getPreferencesQr
+      parameters:
+      - name: env
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 64
+          maximum: 2048
+      - name: path
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: bgcolor
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fgcolor
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A PNG QR code image.
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+components:
+  parameters:
+    OrganizationCode:
+      name: organizationCode
+      in: path
+      required: true
+      schema:
+        type: string
+    PropertyCode:
+      name: propertyCode
+      in: path
+      required: true
+      schema:
+        type: string

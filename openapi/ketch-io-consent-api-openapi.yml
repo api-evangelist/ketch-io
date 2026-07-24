@@ -1,0 +1,166 @@
+openapi: 3.1.0
+info:
+  title: Ketch Web Configuration Consent API
+  description: 'REST endpoints that power Ketch consent collection, consent retrieval and
+
+    update, data subject rights, and preference center QR codes. Endpoint paths
+
+    and behavior are derived from the open source Ketch Web API SDK at
+
+    https://github.com/ketch-sdk/ketch-web-api which is the canonical client for
+
+    the Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.
+
+    '
+  version: 3.0.0
+  contact:
+    name: Ketch
+    url: https://docs.ketch.com/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://global.ketchcdn.com/web/v3
+  description: Ketch global edge production API.
+tags:
+- name: Consent
+  description: Retrieve and update visitor consent state.
+paths:
+  /consent/{organizationCode}/get:
+    parameters:
+    - $ref: '#/components/parameters/OrganizationCode'
+    post:
+      tags:
+      - Consent
+      summary: Get the current consent state for a visitor
+      operationId: getConsent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetConsentRequest'
+      responses:
+        '200':
+          description: The current consent state per purpose.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConsentResponse'
+  /consent/{organizationCode}/update:
+    parameters:
+    - $ref: '#/components/parameters/OrganizationCode'
+    post:
+      tags:
+      - Consent
+      summary: Set the consent state for a visitor
+      operationId: setConsent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetConsentRequest'
+      responses:
+        '204':
+          description: Consent recorded.
+components:
+  schemas:
+    GetConsentResponse:
+      type: object
+      properties:
+        purposes:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              allowed:
+                type: boolean
+              legalBasisCode:
+                type: string
+        vendors:
+          type: array
+          items:
+            type: string
+    SetConsentRequest:
+      type: object
+      required:
+      - organizationCode
+      - propertyCode
+      - environmentCode
+      - jurisdictionCode
+      - identities
+      - purposes
+      properties:
+        organizationCode:
+          type: string
+        propertyCode:
+          type: string
+        environmentCode:
+          type: string
+        jurisdictionCode:
+          type: string
+        identities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Identity'
+        purposes:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              allowed:
+                type: boolean
+              legalBasisCode:
+                type: string
+        vendors:
+          type: array
+          items:
+            type: string
+        collectedAt:
+          type: string
+          format: date-time
+    GetConsentRequest:
+      type: object
+      required:
+      - organizationCode
+      - propertyCode
+      - environmentCode
+      - jurisdictionCode
+      - identities
+      - purposes
+      properties:
+        organizationCode:
+          type: string
+        propertyCode:
+          type: string
+        environmentCode:
+          type: string
+        jurisdictionCode:
+          type: string
+        identities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Identity'
+        purposes:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              legalBasisCode:
+                type: string
+    Identity:
+      type: object
+      properties:
+        identitySpace:
+          type: string
+          description: The identity space code (e.g. ketch_id).
+        identityValue:
+          type: string
+  parameters:
+    OrganizationCode:
+      name: organizationCode
+      in: path
+      required: true
+      schema:
+        type: string

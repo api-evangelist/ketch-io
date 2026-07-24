@@ -1,0 +1,117 @@
+openapi: 3.1.0
+info:
+  title: Ketch Web Configuration API
+  description: 'REST endpoints that power Ketch consent collection, consent retrieval and
+
+    update, data subject rights, and preference center QR codes. Endpoint paths
+
+    and behavior are derived from the open source Ketch Web API SDK at
+
+    https://github.com/ketch-sdk/ketch-web-api which is the canonical client for
+
+    the Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.
+
+    '
+  version: 3.0.0
+  contact:
+    name: Ketch
+    url: https://docs.ketch.com/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://global.ketchcdn.com/web/v3
+  description: Ketch global edge production API.
+tags:
+- name: Configuration
+  description: Fetch per-property bootstrap and consent configuration.
+paths:
+  /config/{organizationCode}/{propertyCode}/{envCode}/{jurisdictionCode}/{langCode}/consent.json:
+    parameters:
+    - $ref: '#/components/parameters/OrganizationCode'
+    - $ref: '#/components/parameters/PropertyCode'
+    - $ref: '#/components/parameters/EnvCode'
+    - $ref: '#/components/parameters/JurisdictionCode'
+    - $ref: '#/components/parameters/LangCode'
+    get:
+      tags:
+      - Configuration
+      summary: Get the v2 consent configuration for a property
+      description: 'Returns the consent-experience configuration for the given property,
+
+        environment, jurisdiction, and language. No secret authentication is
+
+        required; the request is bound to a known property code.
+
+        '
+      operationId: getConsentConfiguration
+      parameters:
+      - name: hash
+        in: query
+        required: false
+        description: Optional cache-buster hash.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The consent configuration document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Configuration'
+  /config/{organizationCode}/{propertyCode}/{envCode}/{jurisdictionCode}/{langCode}/config.json:
+    parameters:
+    - $ref: '#/components/parameters/OrganizationCode'
+    - $ref: '#/components/parameters/PropertyCode'
+    - $ref: '#/components/parameters/EnvCode'
+    - $ref: '#/components/parameters/JurisdictionCode'
+    - $ref: '#/components/parameters/LangCode'
+    get:
+      tags:
+      - Configuration
+      summary: Get the full configuration for a property
+      operationId: getFullConfiguration
+      responses:
+        '200':
+          description: The full configuration document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Configuration'
+components:
+  parameters:
+    EnvCode:
+      name: envCode
+      in: path
+      required: true
+      schema:
+        type: string
+    PropertyCode:
+      name: propertyCode
+      in: path
+      required: true
+      schema:
+        type: string
+    LangCode:
+      name: langCode
+      in: path
+      required: true
+      schema:
+        type: string
+    OrganizationCode:
+      name: organizationCode
+      in: path
+      required: true
+      schema:
+        type: string
+    JurisdictionCode:
+      name: jurisdictionCode
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Configuration:
+      type: object
+      description: Property configuration document. Shape varies by deployment.
+      additionalProperties: true

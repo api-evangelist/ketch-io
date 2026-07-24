@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Ketch Web Configuration Rights API
+  description: 'REST endpoints that power Ketch consent collection, consent retrieval and
+
+    update, data subject rights, and preference center QR codes. Endpoint paths
+
+    and behavior are derived from the open source Ketch Web API SDK at
+
+    https://github.com/ketch-sdk/ketch-web-api which is the canonical client for
+
+    the Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.
+
+    '
+  version: 3.0.0
+  contact:
+    name: Ketch
+    url: https://docs.ketch.com/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://global.ketchcdn.com/web/v3
+  description: Ketch global edge production API.
+tags:
+- name: Rights
+  description: Submit data subject right requests (access, deletion, etc).
+paths:
+  /rights/{organizationCode}/invoke:
+    parameters:
+    - $ref: '#/components/parameters/OrganizationCode'
+    post:
+      tags:
+      - Rights
+      summary: Invoke a data subject right
+      description: 'Submits a data subject right request (access, deletion, portability,
+
+        etc) against the Ketch platform.
+
+        '
+      operationId: invokeRight
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvokeRightRequest'
+      responses:
+        '202':
+          description: Right submitted for processing.
+components:
+  parameters:
+    OrganizationCode:
+      name: organizationCode
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Identity:
+      type: object
+      properties:
+        identitySpace:
+          type: string
+          description: The identity space code (e.g. ketch_id).
+        identityValue:
+          type: string
+    InvokeRightRequest:
+      type: object
+      required:
+      - organizationCode
+      - propertyCode
+      - environmentCode
+      - jurisdictionCode
+      - identities
+      - rightCode
+      - user
+      properties:
+        organizationCode:
+          type: string
+        propertyCode:
+          type: string
+        environmentCode:
+          type: string
+        jurisdictionCode:
+          type: string
+        identities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Identity'
+        rightCode:
+          type: string
+          description: The right being exercised (e.g. delete, access).
+        user:
+          type: object
+          properties:
+            email:
+              type: string
+              format: email
+            first:
+              type: string
+            last:
+              type: string
+            country:
+              type: string
+            stateRegion:
+              type: string
+            description:
+              type: string
