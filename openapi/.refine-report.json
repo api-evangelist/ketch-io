@@ -1,0 +1,20 @@
+{
+  "provider": "ketch-io",
+  "sources": [
+    "ketch-io-configuration-api-openapi.yml",
+    "ketch-io-consent-api-openapi.yml",
+    "ketch-io-preferences-api-openapi.yml",
+    "ketch-io-rights-api-openapi.yml"
+  ],
+  "outputs": [
+    "ketch-io-configuration-api-openapi.yml",
+    "ketch-io-consent-api-openapi.yml",
+    "ketch-io-preferences-api-openapi.yml",
+    "ketch-io-rights-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
