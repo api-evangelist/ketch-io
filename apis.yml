@@ -240,6 +240,19 @@ apis:
   - type: OpenAPI
     url: openapi/ketch-io-rights-api-openapi.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/ketch-sdk/ketch-web-api/issues
+  - type: Releases
+    url: https://github.com/ketch-sdk/ketch-web-api/releases
+  - type: SecurityPolicy
+    url: https://github.com/ketch-sdk/ketch-web-api/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/ketch-sdk/ketch-web-api/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/ketch-sdk/ketch-web-api/blob/main/.github/CONTRIBUTING.md
+  - type: License
+    name: MIT
+    url: https://github.com/ketch-sdk/ketch-web-api/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/ketch-io-agentic-access.yml
   - type: DomainSecurity
