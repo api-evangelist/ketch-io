@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ketch Web Configuration Consent API",
+    "version": "3.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Consent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the current consent state for a visitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://global.ketchcdn.com/web/v3/consent/:organizationCode/get",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the current consent state for a visitor"
+        },
+        {
+          "info": {
+            "name": "Set the consent state for a visitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://global.ketchcdn.com/web/v3/consent/:organizationCode/update",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the consent state for a visitor"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

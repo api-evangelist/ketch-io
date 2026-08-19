@@ -1,0 +1,238 @@
+{
+  "item": [
+    {
+      "id": "28aa500e-2686-4b12-82cc-aa70e661e1c5",
+      "name": "Consent",
+      "description": {
+        "content": "Retrieve and update visitor consent state.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "983e2e72-d12a-4b09-9e4c-4db74aeac604",
+          "name": "Get the current consent state for a visitor",
+          "request": {
+            "name": "Get the current consent state for a visitor",
+            "description": {},
+            "url": {
+              "path": [
+                "consent",
+                ":organizationCode",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organizationCode\": \"<string>\",\n  \"propertyCode\": \"<string>\",\n  \"environmentCode\": \"<string>\",\n  \"jurisdictionCode\": \"<string>\",\n  \"identities\": {\n    \"key_0\": {\n      \"identitySpace\": \"<string>\",\n      \"identityValue\": \"<string>\"\n    }\n  },\n  \"purposes\": {\n    \"key_0\": {\n      \"legalBasisCode\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca0f5736-f6cb-4c62-b3fc-dd684c885d07",
+              "name": "The current consent state per purpose.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent",
+                    ":organizationCode",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organizationCode\": \"<string>\",\n  \"propertyCode\": \"<string>\",\n  \"environmentCode\": \"<string>\",\n  \"jurisdictionCode\": \"<string>\",\n  \"identities\": {\n    \"key_0\": {\n      \"identitySpace\": \"string\",\n      \"identityValue\": \"string\"\n    }\n  },\n  \"purposes\": {\n    \"key_0\": {\n      \"legalBasisCode\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"purposes\": {\n    \"key_0\": {\n      \"allowed\": true,\n      \"legalBasisCode\": \"string\"\n    },\n    \"key_1\": {\n      \"allowed\": true,\n      \"legalBasisCode\": \"string\"\n    }\n  },\n  \"vendors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "127de353-0845-431b-8b9b-62d7395f182a",
+          "name": "Set the consent state for a visitor",
+          "request": {
+            "name": "Set the consent state for a visitor",
+            "description": {},
+            "url": {
+              "path": [
+                "consent",
+                ":organizationCode",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organizationCode\": \"<string>\",\n  \"propertyCode\": \"<string>\",\n  \"environmentCode\": \"<string>\",\n  \"jurisdictionCode\": \"<string>\",\n  \"identities\": {\n    \"key_0\": {\n      \"identitySpace\": \"<string>\",\n      \"identityValue\": \"<string>\"\n    }\n  },\n  \"purposes\": {\n    \"key_0\": {\n      \"allowed\": \"<boolean>\",\n      \"legalBasisCode\": \"<string>\"\n    },\n    \"key_1\": {\n      \"allowed\": \"<boolean>\",\n      \"legalBasisCode\": \"<string>\"\n    }\n  },\n  \"vendors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collectedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0454b59c-21cc-4b60-8282-087f91d924c7",
+              "name": "Consent recorded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent",
+                    ":organizationCode",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organizationCode\": \"<string>\",\n  \"propertyCode\": \"<string>\",\n  \"environmentCode\": \"<string>\",\n  \"jurisdictionCode\": \"<string>\",\n  \"identities\": {\n    \"key_0\": {\n      \"identitySpace\": \"string\",\n      \"identityValue\": \"string\"\n    }\n  },\n  \"purposes\": {\n    \"key_0\": {\n      \"allowed\": \"<boolean>\",\n      \"legalBasisCode\": \"<string>\"\n    },\n    \"key_1\": {\n      \"allowed\": \"<boolean>\",\n      \"legalBasisCode\": \"<string>\"\n    }\n  },\n  \"vendors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"collectedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://global.ketchcdn.com/web/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "14d88a1d-d871-4811-a475-77511a8532e9",
+    "name": "Ketch Web Configuration Consent API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST endpoints that power Ketch consent collection, consent retrieval and\nupdate, data subject rights, and preference center QR codes. Endpoint paths\nand behavior are derived from the open source Ketch Web API SDK at\nhttps://github.com/ketch-sdk/ketch-web-api which is the canonical client for\nthe Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.\n\n\nContact Support:\n Name: Ketch",
+      "type": "text/plain"
+    }
+  }
+}

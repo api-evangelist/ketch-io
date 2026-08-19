@@ -1,0 +1,349 @@
+{
+  "item": [
+    {
+      "id": "1f2a92cd-00c2-40db-aa20-239cc851768b",
+      "name": "Configuration",
+      "description": {
+        "content": "Fetch per-property bootstrap and consent configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "49149ec3-a3f8-4a4e-a31e-a7fd6a8b080c",
+          "name": "Get the v2 consent configuration for a property",
+          "request": {
+            "name": "Get the v2 consent configuration for a property",
+            "description": {
+              "content": "Returns the consent-experience configuration for the given property,\nenvironment, jurisdiction, and language. No secret authentication is\nrequired; the request is bound to a known property code.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                ":organizationCode",
+                ":propertyCode",
+                ":envCode",
+                ":jurisdictionCode",
+                ":langCode",
+                "consent.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "Optional cache-buster hash."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "propertyCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "envCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jurisdictionCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "langCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f61e84e-d975-40e7-ac33-b5d87f9b83d7",
+              "name": "The consent configuration document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    ":organizationCode",
+                    ":propertyCode",
+                    ":envCode",
+                    ":jurisdictionCode",
+                    ":langCode",
+                    "consent.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "propertyCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "envCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jurisdictionCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "langCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5700f90-f71c-4fa2-bb93-0819c92cd5d9",
+          "name": "Get the full configuration for a property",
+          "request": {
+            "name": "Get the full configuration for a property",
+            "description": {},
+            "url": {
+              "path": [
+                "config",
+                ":organizationCode",
+                ":propertyCode",
+                ":envCode",
+                ":jurisdictionCode",
+                ":langCode",
+                "config.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "propertyCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "envCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jurisdictionCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "langCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bac61140-52ca-4811-b577-9faec3cddf1d",
+              "name": "The full configuration document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    ":organizationCode",
+                    ":propertyCode",
+                    ":envCode",
+                    ":jurisdictionCode",
+                    ":langCode",
+                    "config.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "propertyCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "envCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jurisdictionCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "langCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://global.ketchcdn.com/web/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f35a2ddf-19ab-424c-8979-4b2e390d4e41",
+    "name": "Ketch Web Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST endpoints that power Ketch consent collection, consent retrieval and\nupdate, data subject rights, and preference center QR codes. Endpoint paths\nand behavior are derived from the open source Ketch Web API SDK at\nhttps://github.com/ketch-sdk/ketch-web-api which is the canonical client for\nthe Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.\n\n\nContact Support:\n Name: Ketch",
+      "type": "text/plain"
+    }
+  }
+}

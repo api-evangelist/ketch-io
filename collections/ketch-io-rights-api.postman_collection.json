@@ -1,0 +1,133 @@
+{
+  "item": [
+    {
+      "id": "f3cd4f05-00ed-4985-b2c4-c4b7c8420c28",
+      "name": "Rights",
+      "description": {
+        "content": "Submit data subject right requests (access, deletion, etc).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd630357-f459-45d8-8a53-c59fb6f206f9",
+          "name": "Invoke a data subject right",
+          "request": {
+            "name": "Invoke a data subject right",
+            "description": {
+              "content": "Submits a data subject right request (access, deletion, portability,\netc) against the Ketch platform.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rights",
+                ":organizationCode",
+                "invoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organizationCode\": \"<string>\",\n  \"propertyCode\": \"<string>\",\n  \"environmentCode\": \"<string>\",\n  \"jurisdictionCode\": \"<string>\",\n  \"identities\": {\n    \"key_0\": {\n      \"identitySpace\": \"<string>\",\n      \"identityValue\": \"<string>\"\n    }\n  },\n  \"rightCode\": \"<string>\",\n  \"user\": {\n    \"email\": \"<email>\",\n    \"first\": \"<string>\",\n    \"last\": \"<string>\",\n    \"country\": \"<string>\",\n    \"stateRegion\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0c3fbf08-4b5d-4a7f-b166-91de79c50a0c",
+              "name": "Right submitted for processing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rights",
+                    ":organizationCode",
+                    "invoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organizationCode\": \"<string>\",\n  \"propertyCode\": \"<string>\",\n  \"environmentCode\": \"<string>\",\n  \"jurisdictionCode\": \"<string>\",\n  \"identities\": {\n    \"key_0\": {\n      \"identitySpace\": \"string\",\n      \"identityValue\": \"string\"\n    },\n    \"key_1\": {\n      \"identitySpace\": \"string\",\n      \"identityValue\": \"string\"\n    },\n    \"key_2\": {\n      \"identitySpace\": \"string\",\n      \"identityValue\": \"string\"\n    },\n    \"key_3\": {\n      \"identitySpace\": \"string\",\n      \"identityValue\": \"string\"\n    }\n  },\n  \"rightCode\": \"<string>\",\n  \"user\": {\n    \"email\": \"<email>\",\n    \"first\": \"<string>\",\n    \"last\": \"<string>\",\n    \"country\": \"<string>\",\n    \"stateRegion\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://global.ketchcdn.com/web/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "54846291-ba4b-4925-97fd-30bb505e7997",
+    "name": "Ketch Web Configuration Rights API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST endpoints that power Ketch consent collection, consent retrieval and\nupdate, data subject rights, and preference center QR codes. Endpoint paths\nand behavior are derived from the open source Ketch Web API SDK at\nhttps://github.com/ketch-sdk/ketch-web-api which is the canonical client for\nthe Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.\n\n\nContact Support:\n Name: Ketch",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "item": [
+    {
+      "id": "2450127a-fa0f-45c5-a834-45d3f7ae19cd",
+      "name": "Preferences",
+      "description": {
+        "content": "Generate QR codes for the preference center.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64b0f039-a391-4525-8428-8a8b65daf1f6",
+          "name": "Get a QR code image for the preference center",
+          "request": {
+            "name": "Get a QR code image for the preference center",
+            "description": {},
+            "url": {
+              "path": [
+                "qr",
+                ":organizationCode",
+                ":propertyCode",
+                "preferences.png"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "env",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "path",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bgcolor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fgcolor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "propertyCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7093f664-4ee6-4084-a818-fc5036238ff8",
+              "name": "A PNG QR code image.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "qr",
+                    ":organizationCode",
+                    ":propertyCode",
+                    "preferences.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bgcolor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fgcolor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "propertyCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://global.ketchcdn.com/web/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "80008ea3-f110-43e1-9da0-69ddb24c1784",
+    "name": "Ketch Web Configuration Preferences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST endpoints that power Ketch consent collection, consent retrieval and\nupdate, data subject rights, and preference center QR codes. Endpoint paths\nand behavior are derived from the open source Ketch Web API SDK at\nhttps://github.com/ketch-sdk/ketch-web-api which is the canonical client for\nthe Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.\n\n\nContact Support:\n Name: Ketch",
+      "type": "text/plain"
+    }
+  }
+}

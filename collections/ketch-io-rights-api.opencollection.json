@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ketch Web Configuration Rights API",
+    "version": "3.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Invoke a data subject right",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://global.ketchcdn.com/web/v3/rights/:organizationCode/invoke",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits a data subject right request (access, deletion, portability,\netc) against the Ketch platform.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

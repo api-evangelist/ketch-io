@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ketch Web Configuration Preferences API",
+    "version": "3.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Preferences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a QR code image for the preference center",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://global.ketchcdn.com/web/v3/qr/:organizationCode/:propertyCode/preferences.png",
+            "params": [
+              {
+                "name": "organizationCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "propertyCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bgcolor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fgcolor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a QR code image for the preference center"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
