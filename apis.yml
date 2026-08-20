@@ -49,6 +49,12 @@ apis:
   - DSR
   - Preferences
   - Data Mapping
+  - Webhook
+  tags_raw:
+  - Consent
+  - DSR
+  - Preferences
+  - Data Mapping
   - Webhooks
   properties:
   - type: Documentation
