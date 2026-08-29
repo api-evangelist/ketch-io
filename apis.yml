@@ -2,6 +2,20 @@ aid: ketch-io
 name: Ketch
 description: Ketch is a data permissioning and consent platform that helps enterprises keep customer data clean, permissioned, and AI-ready across web, mobile, and backend systems. Its products span consent management, data subject rights automation, AI-powered data mapping, marketing preference management, risk and reporting, a Data Sentry privacy pentest, and an AI governance layer. The Ketch Agent Network turns privacy program insights into agent-driven actions. Builders use a public REST API hosted at global.ketchapi.com, web and mobile SDKs published on GitHub, and Google Tag Manager templates to enforce consent at the source. Ketch advertises more than 1,000 pre-built API integrations with systems, apps, and AI models, with a free tier alongside enterprise and mid-market editions.
 type: Index
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
