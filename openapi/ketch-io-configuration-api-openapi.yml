@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Ketch Web Configuration API
   description: 'REST endpoints that power Ketch consent collection, consent retrieval and
@@ -9,9 +9,7 @@ info:
 
     https://github.com/ketch-sdk/ketch-web-api which is the canonical client for
 
-    the Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.
-
-    '
+    the Ketch global edge endpoints served from https://global.ketchcdn.com/web/v3.'
   version: 3.0.0
   contact:
     name: Ketch
@@ -41,9 +39,7 @@ paths:
 
         environment, jurisdiction, and language. No secret authentication is
 
-        required; the request is bound to a known property code.
-
-        '
+        required; the request is bound to a known property code.'
       operationId: getConsentConfiguration
       parameters:
       - name: hash
@@ -80,8 +76,8 @@ paths:
                 $ref: '#/components/schemas/Configuration'
 components:
   parameters:
-    EnvCode:
-      name: envCode
+    JurisdictionCode:
+      name: jurisdictionCode
       in: path
       required: true
       schema:
@@ -98,14 +94,14 @@ components:
       required: true
       schema:
         type: string
-    OrganizationCode:
-      name: organizationCode
+    EnvCode:
+      name: envCode
       in: path
       required: true
       schema:
         type: string
-    JurisdictionCode:
-      name: jurisdictionCode
+    OrganizationCode:
+      name: organizationCode
       in: path
       required: true
       schema:

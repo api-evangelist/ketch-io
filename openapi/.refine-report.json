@@ -1,10 +1,7 @@
 {
   "provider": "ketch-io",
   "sources": [
-    "ketch-io-configuration-api-openapi.yml",
-    "ketch-io-consent-api-openapi.yml",
-    "ketch-io-preferences-api-openapi.yml",
-    "ketch-io-rights-api-openapi.yml"
+    "_original/ketch-io-openapi.yml"
   ],
   "outputs": [
     "ketch-io-configuration-api-openapi.yml",
@@ -15,6 +12,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ketch-io-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "ketch-io-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ketch-io-consent-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ketch-io-preferences-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ketch-io-rights-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
