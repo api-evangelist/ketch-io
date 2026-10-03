@@ -81,8 +81,8 @@ components:
       description: Property configuration document. Shape varies by deployment.
       additionalProperties: true
   parameters:
-    LangCode:
-      name: langCode
+    OrganizationCode:
+      name: organizationCode
       in: path
       required: true
       schema:
@@ -93,14 +93,14 @@ components:
       required: true
       schema:
         type: string
-    OrganizationCode:
-      name: organizationCode
+    JurisdictionCode:
+      name: jurisdictionCode
       in: path
       required: true
       schema:
         type: string
-    JurisdictionCode:
-      name: jurisdictionCode
+    LangCode:
+      name: langCode
       in: path
       required: true
       schema:

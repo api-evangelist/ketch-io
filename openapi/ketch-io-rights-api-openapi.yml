@@ -46,14 +46,6 @@ paths:
           description: Right submitted for processing.
 components:
   schemas:
-    Identity:
-      type: object
-      properties:
-        identitySpace:
-          type: string
-          description: The identity space code (e.g. ketch_id).
-        identityValue:
-          type: string
     InvokeRightRequest:
       type: object
       required:
@@ -96,6 +88,14 @@ components:
               type: string
             description:
               type: string
+    Identity:
+      type: object
+      properties:
+        identitySpace:
+          type: string
+          description: The identity space code (e.g. ketch_id).
+        identityValue:
+          type: string
   parameters:
     OrganizationCode:
       name: organizationCode

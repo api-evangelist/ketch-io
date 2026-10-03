@@ -63,15 +63,30 @@ paths:
         '204':
           description: Consent recorded.
 components:
+  parameters:
+    OrganizationCode:
+      name: organizationCode
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
-    Identity:
+    GetConsentResponse:
       type: object
       properties:
-        identitySpace:
-          type: string
-          description: The identity space code (e.g. ketch_id).
-        identityValue:
-          type: string
+        purposes:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              allowed:
+                type: boolean
+              legalBasisCode:
+                type: string
+        vendors:
+          type: array
+          items:
+            type: string
     SetConsentRequest:
       type: object
       required:
@@ -110,6 +125,14 @@ components:
         collectedAt:
           type: string
           format: date-time
+    Identity:
+      type: object
+      properties:
+        identitySpace:
+          type: string
+          description: The identity space code (e.g. ketch_id).
+        identityValue:
+          type: string
     GetConsentRequest:
       type: object
       required:
@@ -139,26 +162,3 @@ components:
             properties:
               legalBasisCode:
                 type: string
-    GetConsentResponse:
-      type: object
-      properties:
-        purposes:
-          type: object
-          additionalProperties:
-            type: object
-            properties:
-              allowed:
-                type: boolean
-              legalBasisCode:
-                type: string
-        vendors:
-          type: array
-          items:
-            type: string
-  parameters:
-    OrganizationCode:
-      name: organizationCode
-      in: path
-      required: true
-      schema:
-        type: string
