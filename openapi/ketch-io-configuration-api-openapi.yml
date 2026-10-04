@@ -75,14 +75,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/Configuration'
 components:
-  schemas:
-    Configuration:
-      type: object
-      description: Property configuration document. Shape varies by deployment.
-      additionalProperties: true
   parameters:
+    PropertyCode:
+      name: propertyCode
+      in: path
+      required: true
+      schema:
+        type: string
     OrganizationCode:
       name: organizationCode
+      in: path
+      required: true
+      schema:
+        type: string
+    LangCode:
+      name: langCode
       in: path
       required: true
       schema:
@@ -99,15 +106,8 @@ components:
       required: true
       schema:
         type: string
-    LangCode:
-      name: langCode
-      in: path
-      required: true
-      schema:
-        type: string
-    PropertyCode:
-      name: propertyCode
-      in: path
-      required: true
-      schema:
-        type: string
+  schemas:
+    Configuration:
+      type: object
+      description: Property configuration document. Shape varies by deployment.
+      additionalProperties: true
