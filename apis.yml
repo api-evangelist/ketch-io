@@ -31,6 +31,9 @@ accessModel:
 position: Producing
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ketch-io.png
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
 tags:
   - Ketch
   - Privacy
@@ -260,6 +263,9 @@ apis:
   - type: OpenAPI
     url: openapi/ketch-io-rights-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/ketch-io-capability-edges.yml
+    name: Ketch Business Capability Map
   - type: IssueTracker
     url: https://github.com/ketch-sdk/ketch-web-api/issues
   - type: Releases
