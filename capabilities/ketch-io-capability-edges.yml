@@ -1,0 +1,36 @@
+slug: ketch-io
+provider: Ketch
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Rights
+  spec_file: ketch-io-rights-api-openapi.yml
+  capability_id: BC-130.50
+  capability_id_l1: BC-130
+  capability_name: Privacy & Data Protection Management
+  confidence: 0.89
+  evidence: POST /rights/{organizationCode}/invoke invokeRight "Invoke a data subject right"; schema InvokeRightRequest
+  reason: Invoking a data subject right (access/deletion/opt-out) is explicitly the data-subject-rights
+    element of Privacy & Data Protection Management; no other reading of 'Rights' fits this vendor's consent/DSR
+    platform.
+- tag: Consent
+  spec_file: ketch-io-consent-api-openapi.yml
+  capability_id: BC-130.50
+  capability_id_l1: BC-130
+  capability_name: Privacy & Data Protection Management
+  confidence: 0.82
+  evidence: 'POST /consent/{organizationCode}/update setConsent "Set the consent state for a visitor";
+    description: "Ketch consent collection, consent retrieval and update, data subject rights"'
+  reason: Operations collect and update visitor consent state, the core mechanic of GDPR/CCPA-style privacy
+    compliance, matching Privacy & Data Protection Management. Not marketing preference targeting — the
+    surface is consent state keyed to an Identity.
