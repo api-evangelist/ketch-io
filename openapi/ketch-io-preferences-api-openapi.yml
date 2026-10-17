@@ -71,14 +71,14 @@ paths:
                 format: binary
 components:
   parameters:
-    PropertyCode:
-      name: propertyCode
+    OrganizationCode:
+      name: organizationCode
       in: path
       required: true
       schema:
         type: string
-    OrganizationCode:
-      name: organizationCode
+    PropertyCode:
+      name: propertyCode
       in: path
       required: true
       schema:

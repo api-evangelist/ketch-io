@@ -76,12 +76,6 @@ paths:
                 $ref: '#/components/schemas/Configuration'
 components:
   parameters:
-    PropertyCode:
-      name: propertyCode
-      in: path
-      required: true
-      schema:
-        type: string
     OrganizationCode:
       name: organizationCode
       in: path
@@ -94,14 +88,20 @@ components:
       required: true
       schema:
         type: string
+    JurisdictionCode:
+      name: jurisdictionCode
+      in: path
+      required: true
+      schema:
+        type: string
     EnvCode:
       name: envCode
       in: path
       required: true
       schema:
         type: string
-    JurisdictionCode:
-      name: jurisdictionCode
+    PropertyCode:
+      name: propertyCode
       in: path
       required: true
       schema:
