@@ -1,4 +1,4 @@
-# Ketch (ketch-io)
+# Ketch
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,116 +66,124 @@
 
 Ketch is a data permissioning and consent platform that helps enterprises keep customer data clean, permissioned, and AI-ready across web, mobile, and backend systems. Its products span consent management, data subject rights automation, AI-powered data mapping, marketing preference management, risk and reporting, a Data Sentry privacy pentest, and an AI governance layer. The Ketch Agent Network turns privacy program insights into agent-driven actions. Builders use a public REST API hosted at global.ketchapi.com, web and mobile SDKs published on GitHub, and Google Tag Manager templates to enforce consent at the source. Ketch advertises more than 1,000 pre-built API integrations with systems, apps, and AI models, with a free tier alongside enterprise and mid-market editions.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ketch-io/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ketch-io/refs/heads/main/apis.yml)
+**Areas:** Ketch · Privacy · Consent · Preference Management · DSR · Data Mapping · AI Governance · GDPR · CCPA · SDK · Mobile · Web
 
-## Scope
+## Ketch on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Ketch is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ketch-io/](https://apis.io/providers/ketch-io/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-- Ketch
-- Privacy
-- Consent
-- Preference Management
-- DSR
-- Data Mapping
-- AI Governance
-- GDPR
-- CCPA
-- SDK
-- Mobile
-- Web
+- [Ketch API](https://apis.io/apis/ketch-io/ketch-api/) — REST API for the Ketch platform that powers consent collection and enforcement, data subject rights workflows, data mapping, preference management, and risk…
+- [Ketch Web SDK](https://apis.io/apis/ketch-io/ketch-web-sdk/) — TypeScript and JavaScript Web API and consent library for collecting, storing, and enforcing consent in browser environments. Includes methods such as…
+- [Ketch Mobile SDKs](https://apis.io/apis/ketch-io/ketch-mobile-sdks/) — Native iOS and Android SDKs for collecting and enforcing consent in mobile apps. The iOS SDK supports iOS 15 and above; the Android SDK targets API level 26…
+- [Ketch Configuration API](https://apis.io/apis/ketch-io/ketch-io-configuration-api/) — Fetch per-property bootstrap and consent configuration.
+- [Ketch Consent API](https://apis.io/apis/ketch-io/ketch-io-consent-api/) — Retrieve and update visitor consent state.
+- [Ketch Preferences API](https://apis.io/apis/ketch-io/ketch-io-preferences-api/) — Generate QR codes for the preference center.
+- [Ketch Rights API](https://apis.io/apis/ketch-io/ketch-io-rights-api/) — Submit data subject right requests (access, deletion, etc).
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Ketch API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-REST API for the Ketch platform that powers consent collection and enforcement, data subject rights workflows, data mapping, preference management, and risk reporting. Endpoints are served from global.ketchapi.com and include the Harbormaster service used for authentication and OAuth integration with documentation. Webhooks and a large catalog of pre-built integrations are available for connecting downstream systems.
+- [Ketch Io Agentic Access](https://apis.io/agentic-access/ketch-io/ketch-io-agentic-access/)
 
-- **Human URL:** [https://docs.ketch.com/](https://docs.ketch.com/)
-- **Base URL:** `https://global.ketchapi.com`
+#### Collections (5)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Consent
-- DSR
-- Preferences
-- Data Mapping
-- Webhooks
+- [Ketch Web API](https://apis.io/collections/ketch-io/open-ketch-io/)
+- [Ketch Web Configuration API](https://apis.io/collections/ketch-io/open-ketch-io-configuration-api/)
+- [Ketch Web Configuration Consent API](https://apis.io/collections/ketch-io/open-ketch-io-consent-api/)
+- [Ketch Web Configuration Preferences API](https://apis.io/collections/ketch-io/open-ketch-io-preferences-api/)
+- [Ketch Web Configuration Rights API](https://apis.io/collections/ketch-io/open-ketch-io-rights-api/)
 
-#### Properties
+#### Security (1)
 
-- [Documentation](https://docs.ketch.com/)
-- [API Reference](https://docs.ketch.com/ketch/reference)
-- [Integrations](https://www.ketch.com/integrations)
-- [Source Code](https://github.com/ketch-com)
-- [Sign Up](https://www.ketch.com/ketch-free-cookie-banner)
-- [Pricing](https://www.ketch.com/pricing)
-- [Postman Collection](collections/ketch-io.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ketch-io.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Ketch Web SDK
+- [Ketch Io Domain Security](https://apis.io/security/ketch-io/ketch-io-domain-security/)
 
-TypeScript and JavaScript Web API and consent library for collecting, storing, and enforcing consent in browser environments. Includes methods such as getBootstrapConfiguration and getConsent and a consent library distributed via GitHub.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://github.com/ketch-sdk](https://github.com/ketch-sdk)
+Published plans, tiers and prices.
 
-#### Tags
+- [Ketch Io Plans Pricing](https://apis.io/plans/ketch-io/ketch-io-plans-pricing/)
 
-- Web
-- JavaScript
-- TypeScript
-- SDK
-- Consent
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Source Code](https://github.com/ketch-sdk/ketch-web-api)
-- [Consent Library](https://github.com/ketch-sdk/ketch-consent)
-- [Documentation](https://docs.ketch.com/)
-- [Postman Collection](collections/ketch-io.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ketch-io.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Ketch Io Rate Limits](https://apis.io/rate-limits/ketch-io/ketch-io-rate-limits/)
 
-### Ketch Mobile SDKs
+#### FinOps (1)
 
-Native iOS and Android SDKs for collecting and enforcing consent in mobile apps. The iOS SDK supports iOS 15 and above; the Android SDK targets API level 26 and above. Supports preemptive consent collection and WebView-based consent management and DSR submission.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://github.com/ketch-com](https://github.com/ketch-com)
+- [Ketch Io Finops](https://apis.io/finops/ketch-io/ketch-io-finops/)
 
-#### Tags
+## Where to find this API
 
-- Mobile
-- iOS
-- Android
-- SDK
-- Consent
-
-#### Properties
-
-- [i O S](https://github.com/ketch-com/ketch-ios)
-- [Android](https://github.com/ketch-com/ketch-android)
-- [Documentation](https://developers.ketch.com/docs/mobile-implementation)
-- [Postman Collection](collections/ketch-io.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ketch-io.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.ketch.com/)
 - [Documentation](https://docs.ketch.com/)
-- [Source Code](https://github.com/ketch-sdk)
-- [Source Code](https://github.com/ketch-com)
 - [Pricing](https://www.ketch.com/pricing)
-- [Integrations](https://www.ketch.com/integrations)
+- [Blog](https://www.ketch.com/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 33.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 41.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 10.7 |
+| Access clarity | 28.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ketch-io/](https://apis.io/providers/ketch-io/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ketch: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ketch-io/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
